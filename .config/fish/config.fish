@@ -1,23 +1,23 @@
 # ssh-agent
-set --export SSH_AUTH_SOCK "${XDG_RUNTIME_DIR}/ssh-agent.socket"
+set --export SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # XDG
-set --export XDG_STATE_HOME ${HOME}/.local/state
-set --export XDG_DATA_HOME ${HOME}/.local/share
-set --export XDG_CONFIG_HOME ${HOME}/.config
+set --export XDG_STATE_HOME $HOME/.local/state
+set --export XDG_DATA_HOME $HOME/.local/share
+set --export XDG_CONFIG_HOME $HOME/.config
 
 # System
-set --export PATH ~/.local/bin:${PATH}
+set --export PATH ~/.local/bin:$PATH
 set --export EDITOR nvim
 
 # ZSH
-set --export HISTFILE ${XDG_STATE_HOME}/zhist
+set --export HISTFILE $XDG_STATE_HOME/zhist
 set --export HISTSIZE 1000000
 set --export SAVEHIST 1000
 
 # Custom
-set --export NOTES ${HOME}/notes
-set --export VAULTS ${HOME}/vaults
+set --export NOTES $HOME/notes
+set --export VAULTS $HOME/vaults
 
 function fish_prompt
 	set P_COLOR_1 1C1C1C
