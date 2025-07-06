@@ -1,0 +1,12 @@
+[Unit]
+Description=Add SSH keys to ssh-agent
+After=ssh-agent.service
+Requires=ssh-agent.service
+
+[Service]
+Type=oneshot
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/bash -c 'while ! test -S $SSH_AUTH_SOCK; do sleep 0.1; done; for filename in ~/.ssh/id_*; do if [[ $filename != *.pub ]]; then ssh-add $filename; fi; done'
+
+[Install]
+WantedBy=default.target
