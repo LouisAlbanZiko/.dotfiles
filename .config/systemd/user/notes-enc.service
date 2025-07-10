@@ -1,0 +1,9 @@
+[Unit]
+Description=Service to access encrypted notes
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'PASS_NOTES=$(pass show notes) cryptomator-cli unlock --password:env=PASS_NOTES --mountPoint=$HOME/notes --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider $HOME/vaults/notes'
+
+[Install]
+WantedBy=default.target
