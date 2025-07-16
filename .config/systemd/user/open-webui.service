@@ -3,8 +3,8 @@ Description=Open WebUI service
 
 [Service]
 Type=simple
-Environment=DATA_DIR=~/.local/share/.open-webui
-ExecStart=/home/pe/.local/bin/uvx --python 3.11 open-webui@latest serve
+Environment=DATA_DIR=%h/.local/share/.open-webui
+ExecStart=%h/.local/bin/uvx --python 3.11 open-webui@latest serve
 
 [Install]
 WantedBy=default.target
